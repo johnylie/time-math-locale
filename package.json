@@ -1,0 +1,54 @@
+{
+  "name": "time-math-locale",
+  "version": "1.0.0",
+  "description": "A package for calculating time differences",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "readme": "README.md",
+  "type": "module",
+  "scripts": {
+    "test": "jest --collect-coverage --config jestconfig.json",
+    "build": "tsc",
+    "build:types": "tsc -d --declarationDir dist/lib --declarationMap --emitDeclarationOnly",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "lint:fix": "npx tslint src/**/*.ts --fix",
+    "prepare": "npm run build",
+    "go": "npx ts-node src/index.ts",
+    "jest": "jest",
+    "clean": "rimraf coverage dist",
+    "prepublishOnly": "npm run build && npm run build:types && npm run test",
+    "clear_jest": "jest --clearCache"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "javascript",
+    "time-math-locale",
+    "calculate-time"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnylie/time-math-locale.git"
+  },
+  "author": "Johny Lie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnylie/time-math-locale/issues"
+  },
+  "homepage": "https://github.com/johnylie/time-math-locale#readme",
+  "funding": "https://github.com/sponsors/johnylie",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "prettier-eslint": "^16.3.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.7.4",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}
