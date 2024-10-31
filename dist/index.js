@@ -14,7 +14,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateTime = void 0;
+exports.calculateTime = exports.formatTime = void 0;
 var function_1 = require("./function");
+Object.defineProperty(exports, "formatTime", { enumerable: true, get: function () { return function_1.formatTime; } });
 Object.defineProperty(exports, "calculateTime", { enumerable: true, get: function () { return function_1.calculateTime; } });
 __exportStar(require("./function"), exports);

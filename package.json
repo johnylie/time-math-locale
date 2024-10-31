@@ -1,6 +1,6 @@
 {
   "name": "time-math-locale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package for calculating time differences",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -40,6 +40,7 @@
   "funding": "https://github.com/sponsors/johnylie",
   "dependencies": {
     "axios": "^1.7.7",
+    "date-fns": "^4.1.0",
     "prettier-eslint": "^16.3.0"
   },
   "devDependencies": {
