@@ -42,23 +42,27 @@ export function formatTime(
   let result: string;
 
   if (seconds === 0) {
-    result = 'sekarang';
-  } else if (seconds < 0 && minutes === 0) {
-    result = `${Math.abs(seconds)} detik ${locale === 'id' ? 'yang lalu' : 'ago'}`;
-  } else if (seconds < 0 && hours === 0) {
-    result = `${Math.abs(minutes)} menit ${locale === 'id' ? 'yang lalu' : 'ago'}`;
-  } else if (seconds < 0 && days === 0) {
-    result = `${Math.abs(hours)} jam ${locale === 'id' ? 'yang lalu' : 'ago'}`;
+    result = locale === 'id' ? 'sekarang' : 'now';
   } else if (seconds < 0) {
-    result = `${Math.abs(days)} hari ${locale === 'id' ? 'yang lalu' : 'ago'}`;
-  } else if (minutes < 1) {
-    result = `${Math.abs(seconds)} detik ${locale === 'id' ? 'dari sekarang' : 'from now'}`;
-  } else if (hours < 1) {
-    result = `${Math.abs(minutes)} menit ${locale === 'id' ? 'dari sekarang' : 'from now'}`;
-  } else if (days < 1) {
-    result = `${Math.abs(hours)} jam ${locale === 'id' ? 'dari sekarang' : 'from now'}`;
+    if (Math.abs(days) > 0) {
+      result = `${Math.abs(days)} ${locale === 'id' ? 'hari yang lalu' : 'days ago'}`;
+    } else if (Math.abs(hours) > 0) {
+      result = `${Math.abs(hours)} ${locale === 'id' ? 'jam yang lalu' : 'hours ago'}`;
+    } else if (Math.abs(minutes) > 0) {
+      result = `${Math.abs(minutes)} ${locale === 'id' ? 'menit yang lalu' : 'minutes ago'}`;
+    } else {
+      result = `${Math.abs(seconds)} ${locale === 'id' ? 'detik yang lalu' : 'seconds ago'}`;
+    }
   } else {
-    result = `${Math.abs(days)} hari ${locale === 'id' ? 'dari sekarang' : 'from now'}`;
+    if (days > 0) {
+      result = `${days} ${locale === 'id' ? 'hari dari sekarang' : 'days from now'}`;
+    } else if (hours > 0) {
+      result = `${hours} ${locale === 'id' ? 'jam dari sekarang' : 'hours from now'}`;
+    } else if (minutes > 0) {
+      result = `${minutes} ${locale === 'id' ? 'menit dari sekarang' : 'minutes from now'}`;
+    } else {
+      result = `${seconds} ${locale === 'id' ? 'detik dari sekarang' : 'seconds from now'}`;
+    }
   }
 
   return `${prefix} ${result} ${suffix}`.trim();
